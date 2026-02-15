@@ -1,0 +1,26 @@
+SOLUTIONS:
+
+Problem 1:
+A. 
+- P(C1) = P(C2) = 0%. P(C3) = 100%.
+- ./aleae test.in test.r 1000 -1 0
+Initial Quantities and Thresholds
+a 110 (>= 150) b 26 (< 10) c 55 (> 100) 
+
+Reactions
+  0: a 2 b 1 : a -2 b -1 c 4 : 1.0000 : 0 1 2 
+  1: a 1 c 2 : a -1 c -2 b 3 : 2.0000 : 0 1 2 
+  2: b 1 c 1 : b -1 c -1 a 2 : 3.0000 : 0 1 2 
+
+
+simulation stats:
+avg [16.1280, 610.1310, 101.9210]
+a >= 150: 0 (0.0000%)
+b <  10: 0 (0.0000%)
+c >  100: 1000 (100.0000%)
+avg   events/trial 1994.3570
+avg   runtime      0.0.536
+total runtime      0.536.472
+
+B. 
+

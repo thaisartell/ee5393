@@ -1,0 +1,16 @@
+aleae str<file1> str<file2> int<trials> int<time> int<verbosity>
+
+- <file1>: contains the name, initial quantity and threshold
+for each molecular type
+- <file2>: contains the reactants, products and rate constant for each reaction
+- <trials>: specifies how many trials to perform
+- <time>: specifies a time limit (this is if random time steps are taken -- set it to -1 to ignore time)
+- <verbosity>: specifies how detailed the output should be; choose a number between 0 and 15, inclusive.
+
+Problem 1:
+- C1: states S = [x1, x2, x3] with x1>=150
+- C2: S = [x1, x2, x3] w/ x2 < 10
+- C3: S = [...] w/ x3 > 100
+- Starting state: S = [110, 26, 55] compute/estimate P(C1), P(C2), P(C3)
+
+aleae test.in test.r <trials> <time> <verbosity>
