@@ -82,6 +82,8 @@ int main(int argc, char **argv)
 
    // for each trial
    vector<unsigned> A(S.size()); 
+   vector<unsigned> A2(S.size(), 0.0); // Array (via ChatGPT) to eventually calculate variance
+
    for (unsigned n = 0; n < trials; n++) {
       
       if (param.print & PRINT_TRIALS) {
@@ -106,6 +108,7 @@ int main(int argc, char **argv)
             
       for (unsigned i = 0; i < A.size(); i++) {
          A[i] += I[i];
+         A2[i] += I[i] * I[i];
       }
             
       if (param.print & PRINT_TRIALS) {
@@ -162,6 +165,17 @@ int main(int argc, char **argv)
    cout << "[";
    for (unsigned i = 0; i < A.size(); i++) {
       cout << A[i]/(double)trials;
+      if (i < A.size() - 1) cout << ", ";
+   }
+   cout << "]" << endl;
+
+   // ChatGPT printing variance
+   cout << "var ";
+   cout << "[";
+   for (unsigned i = 0; i < A.size(); i++) {
+      double mu  = A[i]  / (double)trials;
+      double var = A2[i] / (double)trials - mu*mu;  // population variance
+      cout << var;
       if (i < A.size() - 1) cout << ", ";
    }
    cout << "]" << endl;

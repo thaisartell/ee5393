@@ -31,8 +31,17 @@ aleae_stoch(const biocr_t           biocr, // reactions
    const vector<thresh_t> &T = biocr.T; // thresholds
    const vector<react_t > &R = biocr.R; // reactions
 
+   // Event-count limit (for Problem 1b)
+   // If time_lt <= -2, interpret -time_lt as max number of events
+   int event_lt = -1;
+   if (param.time_lt <= -2.0)
+    event_lt = (int)(-param.time_lt);
+
    bool   done = false; 
-   while (!done && (param.time_lt < 0 || stats.time < param.time_lt)) {
+   // while (!done && (param.time_lt < 0 || stats.time < param.time_lt)) {
+   while (!done &&
+       (event_lt < 0 || (int)stats.event_ct < event_lt) &&
+       (param.time_lt < 0 || stats.time < param.time_lt)) {
 
       // ----------------------------------------------------------------------------------------------------------
       // compute a[i]'s

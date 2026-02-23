@@ -23,4 +23,21 @@ avg   runtime      0.0.536
 total runtime      0.536.472
 
 B. 
+./aleae p1b.in test.r 100000 -7 0
+
+Initial Quantities and Thresholds
+a 9 b 8 c 7 
+
+Reactions
+  0: a 2 b 1 : a -2 b -1 c 4 : 1.0000 : 0 1 2 
+  1: a 1 c 2 : a -1 c -2 b 3 : 2.0000 : 0 1 2 
+  2: b 1 c 1 : b -1 c -1 a 2 : 3.0000 : 0 1 2 
+
+
+simulation stats:
+avg [5.8385, 12.4945, 7.8021]
+var [5.8790, 8.8580, 8.9114]
+avg   events/trial 7.0000
+avg   runtime      0.0.3
+total runtime      0.395.301
 
