@@ -52,3 +52,29 @@ MOI = 7: cI2 >  145: 299 (29.9000%), Cro2 >  55: 701 (70.1000%)
 MOI = 8: cI2 >  145: 336 (33.6000%), Cro2 >  55: 664 (66.4000%)
 MOI = 9: cI2 >  145: 324 (32.4000%), Cro2 >  55: 676 (67.6000%)
 MOI = 10: cI2 >  145: 348 (34.8000%), Cro2 >  55: 652 (65.2000%)
+
+Problem 3:
+Z = X * log_2(Y)
+
+./aleae p3_sol.in p3_sol.r 1000 -1 0
+Initial Quantities and Thresholds
+X 5 Y 8 b 3 aL 0 YpL 0 cL 0 WL 0 L 0 aM 0 LpM 0 WM 0 Z 0 
+
+Reactions
+  0: b 1 : b -1 aL 1 : 1.0000 : 0 1 2 4 
+  1: aL 1 Y 2 : aL 0 Y -2 YpL 1 : 1000.0000 : 1 3 4 
+  2: aL 1 : aL 0 cL 1 : 100.0000 : 5 
+  3: YpL 1 : YpL -1 Y 1 : 1.0000 : 1 3 4 
+  4: aL 1 Y 1 : aL -1 Y 0 WL 1 : 1000.0000 : 1 2 4 
+  5: cL 1 : cL -1 L 1 : 1000.0000 : 5 6 7 
+  6: X 1 L 3 : X -1 L 0 aM 1 : 0.0100 : 6 7 8 
+  7: aM 1 L 1 : aM 0 L -1 LpM 1 Z 1 : 100000.0000 : 6 7 9 
+  8: aM 1 : aM -1 WM 1 : 1000.0000 : 7 8 
+  9: LpM 1 : LpM -1 L 1 : 0.1000 : 6 7 9 
+
+
+simulation stats:
+avg [3.5650, 4.3220, 0.0000, 0.0000, 0.0000, 0.0000, 3.0000, 11.7170, 0.0000, 0.0000, 1.4350, 14.9370]
+avg   events/trial 69.5340
+avg   runtime      0.0.289
+total runtime      0.289.582
